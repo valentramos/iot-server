@@ -6,6 +6,7 @@ const port = 3000;
 let sensorData1 = { temperature: 0, humidity: 0, timestamp: new Date().toISOString() };
 let sensorData2 = { temperature: 0, humidity: 0, timestamp: new Date().toISOString() };
 let ledState = { status: 'off' };
+let fanState = { status: 'off' };
 
 app.use(bodyParser.json());
 app.use(express.static('public')); // Servir archivos estáticos desde la carpeta 'public'
@@ -46,6 +47,20 @@ app.post('/led', (req, res) => {
 
 app.get('/led', (req, res) => {
   res.json(ledState);
+});
+
+app.post('/fan', (req, res) => {
+  const { status } = req.body;
+  if (status !== 'on' && status !== 'off') {
+    return res.status(400).send('Bad Request: Invalid status');
+  }
+  fanState = { status };
+  console.log(`FAN status: ${status}`);
+  res.sendStatus(200);
+});
+
+app.get('/fan', (req, res) => {
+  res.json(fanState);
 });
 
 app.listen(port, () => {

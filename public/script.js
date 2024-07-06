@@ -5,14 +5,14 @@ const sensorChart1 = new Chart(ctx1, {
     labels: [], // Etiquetas para el eje X
     datasets: [
       {
-        label: 'Temperature (°C)',
+        label: 'Temperatura (°C)',
         borderColor: 'rgb(255, 99, 132)',
         backgroundColor: 'rgba(255, 99, 132, 0.2)',
         fill: false,
         data: [], // Datos de temperatura del sensor 1
       },
       {
-        label: 'Humidity (%)',
+        label: 'Humedad (%)',
         borderColor: 'rgb(54, 162, 235)',
         backgroundColor: 'rgba(54, 162, 235, 0.2)',
         fill: false,
@@ -30,7 +30,7 @@ const sensorChart1 = new Chart(ctx1, {
         },
         title: {
           display: true,
-          text: 'Time'
+          text: 'Tiempo'
         }
       },
       y: {
@@ -51,14 +51,14 @@ const sensorChart2 = new Chart(ctx2, {
     labels: [], // Etiquetas para el eje X
     datasets: [
       {
-        label: 'Temperature (°C)',
+        label: 'Temperatura (°C)',
         borderColor: 'rgb(75, 192, 192)',
         backgroundColor: 'rgba(75, 192, 192, 0.2)',
         fill: false,
         data: [], // Datos de temperatura del sensor 2
       },
       {
-        label: 'Humidity (%)',
+        label: 'Humedad (%)',
         borderColor: 'rgb(153, 102, 255)',
         backgroundColor: 'rgba(153, 102, 255, 0.2)',
         fill: false,
@@ -76,7 +76,7 @@ const sensorChart2 = new Chart(ctx2, {
         },
         title: {
           display: true,
-          text: 'Time'
+          text: 'Tiempo'
         }
       },
       y: {
