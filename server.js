@@ -5,6 +5,7 @@ const port = 3000;
 
 let sensorData1 = { temperature: 0, humidity: 0, timestamp: new Date().toISOString() };
 let sensorData2 = { temperature: 0, humidity: 0, timestamp: new Date().toISOString() };
+let ledState = { status: 'off' };
 
 app.use(bodyParser.json());
 app.use(express.static('public')); // Servir archivos estáticos desde la carpeta 'public'
@@ -31,6 +32,20 @@ app.post('/sensor-data-2', (req, res) => {
 
 app.get('/sensor-data', (req, res) => {
   res.json({ sensor1: sensorData1, sensor2: sensorData2 });
+});
+
+app.post('/led', (req, res) => {
+  const { status } = req.body;
+  if (status !== 'on' && status !== 'off') {
+    return res.status(400).send('Bad Request: Invalid status');
+  }
+  ledState = { status };
+  console.log(`LED status: ${status}`);
+  res.sendStatus(200);
+});
+
+app.get('/led', (req, res) => {
+  res.json(ledState);
 });
 
 app.listen(port, () => {
