@@ -17,7 +17,7 @@
 
         h1 {
             margin: 20px 0;
-            color: #333;
+            color: #000000;
         }
 
         #dashboard {
@@ -41,21 +41,26 @@
         .card p {
             margin: 0;
             font-size: 1.2em;
+            margin-bottom: 20px;
         }
 
         .card span {
-            margin-top: 12px;
-            font-size: 20px;
-            font-weight: bold;
-            color: #686868;
-        }
-        .card.dato-exacto span{
-            color: rgb(24, 61, 226);
+            font-size: 22px;
+            font-weight: 600;
+            color: #007bff;
         }
     </style>
 </head>
 <body>
     <h1>Datos de Sensores</h1>
+    <div style="margin: 0 0 10px 0;">
+        <h4>Integrantes:</h4>
+        <p>Ignacio Valentin Ramos Condori</p>
+        <p>Luis Apaza Kame</p>
+        <h4>Docente:</h4>
+        <p>MGTR. Jose Antonio Santander Figueredo</p>
+        <p><span style="font-style: italic;">La Paz - Bolivia, 16 de Junio, 2024 - Universidad Tecnológica Boliviana.</span></p>
+    </div>
     <div id="dashboard">
         <div class="card">
             <p>Temperatura</p>
@@ -69,7 +74,7 @@
             <p>Pulso</p>
             <span id="pulse-value">No disponible</span>
         </div>
-        <div class="card dato-exacto">
+        <div class="card">
             <p>Respiración</p>
             <span id="resp-value">No disponible</span>
         </div>
@@ -83,7 +88,7 @@
             document.getElementById('temp-value').textContent = data.temperature !== undefined ? data.temperature + ' °C' : 'No disponible';
             document.getElementById('bp-value').textContent = data.blood_pressure !== undefined ? `Sistole: ${data.blood_pressure.Sistole}, Diastole: ${data.blood_pressure.Diastole}` : 'No disponible';
             document.getElementById('pulse-value').textContent = data.pulse !== undefined ? data.pulse + ' Pulso/min' : 'No disponible';
-            document.getElementById('resp-value').textContent = data.respiration !== undefined ? data.respiration + ' Respiración/min' : 'No disponible';
+            document.getElementById('resp-value').textContent = data.respiration !== undefined ? data.respiration + ' Resp/min' : 'No disponible';
         }
 
         fetchData();
