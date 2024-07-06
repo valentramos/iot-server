@@ -9,6 +9,9 @@ app.use(bodyParser.json());
 
 app.post('/sensor-data', (req, res) => {
   const { temperature, humidity } = req.body;
+  if (temperature === undefined || humidity === undefined) {
+    return res.status(400).send('Bad Request');
+  }
   sensorData = { temperature, humidity };
   console.log(`Received data: Temperature = ${temperature}, Humidity = ${humidity}`);
   res.sendStatus(200);
