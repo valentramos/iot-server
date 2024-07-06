@@ -139,3 +139,18 @@ async function toggleLED(status) {
     console.log('Failed to change LED status');
   }
 }
+
+async function toggleVENTILADOR(status) {
+  const response = await fetch('/fan', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({ status })
+  });
+  if (response.ok) {
+    console.log(`VENTILADOR turned ${status}`);
+  } else {
+    console.log('Failed to change VENTILADOR status');
+  }
+}
