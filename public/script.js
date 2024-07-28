@@ -123,7 +123,7 @@ async function fetchSensorData() {
 }
 
 // Actualiza los datos cada 5 segundos
-setInterval(fetchSensorData, 10000);
+setInterval(fetchSensorData, 5000);
 
 async function toggleLED(status) {
   const response = await fetch('/led', {
